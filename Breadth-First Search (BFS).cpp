@@ -6,6 +6,7 @@ vector<int> bfs_traversal(vector<int> adj[], int n)
 {
     vector<int> bfs;
     vector<int> vis(n + 1, 0);
+    //if the graph is disconnected...this for loop will take care of that
     for (int i = 1; i <= n; i++)
     {
         if (!vis[i])
