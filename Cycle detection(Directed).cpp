@@ -103,7 +103,8 @@ int main()
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
-        adj[v].push_back(u);
+        //since this is directed graph...
+        //adj[v].push_back(u);
     }
     //declaring object...
     Cycle_Check check;
