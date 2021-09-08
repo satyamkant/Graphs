@@ -39,7 +39,7 @@ public:
             {
                 parent[parent_a] = parent_b;
                 if (rank[parent_a] == rank[parent_b])
-                    parent[parent_b]++;
+                    rank[parent_b]++;
             }
         }
     }
