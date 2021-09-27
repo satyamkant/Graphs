@@ -1,3 +1,5 @@
+//Author:- satyam kant//
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -16,10 +18,10 @@ class Cycle_Check
             {
                 vis[i] = 1;
                 queue<int> qu;
-                for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
                 {
-                    if (indegree[i] == 0)
-                        qu.push(i);
+                    if (indegree[j] == 0)
+                        qu.push(j);
                 }
 
                 while (!qu.empty())
@@ -38,12 +40,14 @@ class Cycle_Check
             }
         }
 
-        return !(cnt == n);
+        return !(cnt == n); //if not true then there is a cycle..
     }
 
     bool dfs_Cycle_Check(vector<int> adj[], vector<int> &vis, vector<int> &dfs_vis, int node)
     {
+        //vis array will not change once it is assigned...
         vis[node] = 1;
+
         dfs_vis[node] = 1;
         for (auto it : adj[node])
         {
@@ -55,6 +59,7 @@ class Cycle_Check
             else if (dfs_vis[it])
                 return true;
         }
+        //we must set the dfs visit to 0, to avoid false cycle detection...
         dfs_vis[node] = 0;
         return false;
     }
@@ -64,10 +69,11 @@ public:
     {
         vector<int> indegree(n + 1, 0);
         //creating indegree array...
+        //for every node we are storing the number of incoming edges...
         for (int i = 0; i < n; i++)
         {
             for (auto it : adj[i])
-                indegree[it]++;
+                indegree[it]++; //this child has one edge coming from its parent (directed)...
         }
         return bfs_Cycle_Check(adj, indegree, n);
     }

@@ -1,3 +1,5 @@
+//Author:- satyam kant//
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -11,7 +13,7 @@ class Dijkstra_Algorithm
         while (!pq.empty())
         {
             int node = pq.top().second;
-            int predist = pq.top().first;
+            int predist = pq.top().first; //distance to reach node from node root(0)...
             pq.pop();
             for (auto it : adj[node])
             {

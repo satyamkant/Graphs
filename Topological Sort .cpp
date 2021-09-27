@@ -1,4 +1,6 @@
 // note: topo sort using BFS is also called as Kahn's algorithm
+//Author:- satyam kant//
+
 #include <bits/stdc++.h>
 
 using namespace std;

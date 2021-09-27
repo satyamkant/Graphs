@@ -1,3 +1,5 @@
+//Author:- satyam kant//
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -5,7 +7,7 @@ using namespace std;
 class DSU
 {
     vector<int> rank, parent;
- 
+
 public:
     //constructor...
     DSU(int n)
@@ -15,17 +17,17 @@ public:
         for (int i = 0; i < n; i++)
             parent[i] = i;
     }
- 
+
     int findPar(int node)
     {
         return ((parent[node] == node) ? node : (parent[node] = findPar(parent[node])));
     }
- 
+
     bool isSameSet(int a, int b)
     {
         return (findPar(a) == findPar(b));
     }
- 
+
     void unionSet(int a, int b)
     {
         if (!isSameSet(a, b))
@@ -43,7 +45,7 @@ public:
             }
         }
     }
- 
+
     int Total_disjoint()
     {
         int count = 0;
@@ -54,7 +56,7 @@ public:
         }
         return count;
     }
- 
+
     int sizeof_set(int node)
     {
         int count = 0;
