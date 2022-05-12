@@ -11,18 +11,19 @@ class Topo_sort
     {
         vector<int> vis(n + 1, 0), srt_arr;
         //if the graph is disconnected...then this for loop will take care of that
-        for (int i = 0; i < n; i++)
-        {
-            if (indegree[i] == 0)
-                qu.push(i);
-        }
+      
         for (int i = 0; i < n; i++)
         {
             if (!vis[i])
             {
                 vis[i] = 1;
                 queue<int> qu;
-               
+                
+                for (int i = 0; i < n; i++)
+                {
+                    if (indegree[i] == 0)
+                        qu.push(i);
+                }
 
                 while (!qu.empty())
                 {
